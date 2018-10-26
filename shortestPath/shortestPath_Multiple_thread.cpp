@@ -32,6 +32,12 @@ pthread_mutex_t writeLock;
 int actual_thread_count = 0;
 int plan_thread_count = 0;
 
+// time tracing
+char time_tracing_option;
+
+//
+ofstream outfile;
+
 
 /************************************************************************
  
@@ -110,6 +116,17 @@ void shortestPath (){
             plan_thread_count++;
             pthread_join(*(thread + i), NULL);
         }
+        
+        if (time_tracing_option == 'Y') {
+            printf("\n\nAlready running %d times!:\n" , k);
+            printf("Created threads %d !\n" , actual_thread_count);
+            printf("Totoal Running time now is %lf ! \n" , float( clock () - begin_time ) /  CLOCKS_PER_SEC);
+            // 向文件写入用户输入的数据
+            outfile << "\n\n Already running %d times!: " << k << endl;
+            outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
+            outfile << "Totoal Running time now is " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << endl;
+        }
+        
     }
     
     total_time_of_running = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
@@ -135,6 +152,9 @@ int main(int argc, const char * argv[]) {
     char option;
     scanf("\n%c" , &option);
     
+    printf("Enable time tracing? Y for yes, N for no(Captial Letter)\n");
+    scanf("\n%c" , &time_tracing_option);
+    
     initializeGraph(N_nodes, M_edges);                      // initialize graph
     signEdges(M_edges);                                     // get edges' input
 
@@ -142,7 +162,9 @@ int main(int argc, const char * argv[]) {
         printf("INPUT:\n");
         printGraph();
     }
-    
+
+    outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+
     // calculate shortest path
     shortestPath();
     
@@ -151,24 +173,21 @@ int main(int argc, const char * argv[]) {
         for (int i = 0; i < N_nodes; i++) {
             printf("*****");
         }
-        
         cout << endl;
         printf("OUTPUT:\n");
         printGraph(); printDist();
     }
 
     // 以写模式打开文件
-    ofstream outfile;
-    outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
     
     
     // 向文件写入用户输入的数据
-    outfile << "Total Time = " << total_time_of_running << endl;
+    outfile << "\nTotal Time = " << total_time_of_running << endl;
     outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
     outfile << "Total create " << plan_thread_count <<  " threads(plan)" << endl;
     
 
-    printf("Total Time = %f\nTotal create %d threads(actual)\nTotal create %d threads(plan) " , total_time_of_running , actual_thread_count, plan_thread_count);
+    printf("\nTotal Time = %f\nTotal create %d threads(actual)\nTotal create %d threads(plan) " , total_time_of_running , actual_thread_count, plan_thread_count);
     
     // 关闭打开的文件
     outfile.close();
