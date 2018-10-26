@@ -9,6 +9,8 @@
 #include <iostream>
 #include "graph.h"
 #include <semaphore.h>
+#include <unistd.h>
+#include <fstream>
 
 // struct for matrix info
 struct arg_s{
@@ -26,11 +28,24 @@ double total_time_of_running = 0;
 pthread_mutex_t readCountLock;
 pthread_mutex_t writeLock;
 
+// thread create count
+int actual_thread_count = 0;
+int plan_thread_count = 0;
 
 
-
-
+/************************************************************************
+ 
+ strcut:        worker
+ 
+ Description:   calculating threads for each dist[][]
+ 
+ *************************************************************************/
 void *worker(void *param){
+    // thread count
+    pthread_mutex_lock(&writeLock);
+    actual_thread_count++;
+    pthread_mutex_unlock(&writeLock);
+    
     // get *param as struct and convert to additionMatrix
     arg_s *arg = (arg_s*)param;
     int i = arg->i;
@@ -48,7 +63,7 @@ void *worker(void *param){
             //acquire write lock
 //            sem_wait(&writeLock);
             pthread_mutex_lock(&writeLock);
-
+            actual_thread_count++;
             dist[i][j] = dist[i][k] + dist[k][j];
             
             //release write lock
@@ -66,15 +81,22 @@ void *worker(void *param){
     pthread_exit(NULL);
 }
 
-
+/************************************************************************
+ 
+ strcut:        shortestPath
+ 
+ Description:   shortest Path main functions
+ 
+ *************************************************************************/
 void shortestPath (){
     
+    const clock_t begin_time = clock();
+    
     for (int k = 0; k < N_nodes; k++) {
-        
+        arg_s value[N_nodes];
         // create N pthreads
         pthread_t *thread = (pthread_t *)malloc(N_nodes * sizeof(pthread_t));
-        arg_s value[N_nodes];
-
+        
         for (int i = 0; i < N_nodes; i++) {
             // set up arguments to be passed
             value[i].n = N_nodes;
@@ -82,17 +104,16 @@ void shortestPath (){
             value[i].i = i;
             pthread_create((thread + i), NULL, worker, &value[i]);
         }
-        
-        const clock_t begin_time = clock();
+   
         // join pthreads
         for (int i = 0 ; i < N_nodes; i++) {
+            plan_thread_count++;
             pthread_join(*(thread + i), NULL);
         }
-        
-        total_time_of_running += float( clock () - begin_time ) /  CLOCKS_PER_SEC;
-
     }
     
+    total_time_of_running = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
+
 }
 
 
@@ -109,23 +130,48 @@ int main(int argc, const char * argv[]) {
     // enter N and M
     printf("Enter N and M (N for n nodes, M for m edges)\n");
     scanf("%d %d", &N_nodes, &M_edges);
+    // check if not print output
+    printf("Chose whether print out whole distance matrix or not, Y for yes, N for no(Captial Letter)\n");
+    char option;
+    scanf("\n%c" , &option);
+    
     initializeGraph(N_nodes, M_edges);                      // initialize graph
     signEdges(M_edges);                                     // get edges' input
-    printf("INPUT:\n");
-    printGraph();                                           // print out input
+
+    if (option == 'Y') {
+        printf("INPUT:\n");
+        printGraph();
+    }
     
     // calculate shortest path
     shortestPath();
     
     
-    // print out result
-    for (int i = 0; i < N_nodes; i++) {
-        printf("*****");
+    if (option == 'Y') {
+        for (int i = 0; i < N_nodes; i++) {
+            printf("*****");
+        }
+        
+        cout << endl;
+        printf("OUTPUT:\n");
+        printGraph(); printDist();
     }
-    cout << endl;
-    printf("OUTPUT:\n");
-    printGraph(); printDist();
-    printf("Total Time = %f\n" , total_time_of_running);
+
+    // 以写模式打开文件
+    ofstream outfile;
+    outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+    
+    
+    // 向文件写入用户输入的数据
+    outfile << "Total Time = " << total_time_of_running << endl;
+    outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
+    outfile << "Total create " << plan_thread_count <<  " threads(plan)" << endl;
+    
+
+    printf("Total Time = %f\nTotal create %d threads(actual)\nTotal create %d threads(plan) " , total_time_of_running , actual_thread_count, plan_thread_count);
+    
+    // 关闭打开的文件
+    outfile.close();
     
 //    sem_destroy(&writeLock);
 //    sem_destroy(&readCountLock);

@@ -30,10 +30,17 @@ int main(int argc, const char * argv[]) {
     // enter N and M
     printf("Enter N and M (N for n nodes, M for m edges)\n");
     scanf("%d %d", &N_nodes, &M_edges);
+    printf("Chose whether print out whole distance matrix or not, Y for yes, N for no(Captial Letter)\n");
+    char option;
+    scanf("\n%c" , &option);
+    
     initializeGraph(N_nodes, M_edges);
     signEdges(M_edges);
-    printf("INPUT:\n");
-    printGraph();
+    
+    if (option == 'Y') {
+        printf("INPUT:\n");
+        printGraph();
+    }
     
     pthread_t cal;
     pthread_attr_t attr;
@@ -46,13 +53,16 @@ int main(int argc, const char * argv[]) {
     pthread_join(cal, NULL);
     total_time_of_running = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
 
-    for (int i = 0; i < N_nodes; i++) {
-        printf("*****");
+    if (option == 'Y') {
+        for (int i = 0; i < N_nodes; i++) {
+            printf("*****");
+        }
+        
+        cout << endl;
+        printf("OUTPUT:\n");
+        printGraph(); printDist();
     }
-    
-    cout << endl;
-    printf("OUTPUT:\n");
-    printGraph(); printDist();
+
 
     printf("Total Time = %f\n" , total_time_of_running);
     

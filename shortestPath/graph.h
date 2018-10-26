@@ -13,6 +13,7 @@
 #include <pthread.h>
 #include <math.h>
 #include <time.h>
+#include <limits.h>
 
 using namespace std;
 
@@ -54,6 +55,13 @@ void initializeGraph( int N_nodes, int M_edges){
     
 }
 
+/************************************************************************
+ 
+ strcut:        signEdges
+ 
+ Description:   register each edges to graph
+ 
+ *************************************************************************/
 void signEdges(int M_edges){
     printf("Enter edges\n");
     // enter edges
@@ -68,10 +76,17 @@ void signEdges(int M_edges){
     }
 }
 
+/************************************************************************
+ 
+ strcut:        printHeader
+ 
+ Description:   print function for dispalying
+ 
+ *************************************************************************/
 void printHeader(){
     printf("%5s" , " ");
     for (int i = 1; i <= N_nodes; i++) {
-        printf("%-4d " , i);
+        printf("%-6d " , i);
     }
     cout << endl;
     for (int i = 0; i <= N_nodes; i++) {
@@ -80,25 +95,39 @@ void printHeader(){
     cout << endl;
 }
 
+/************************************************************************
+ 
+ strcut:        printGraph
+ 
+ Description:   print adjacency matrix
+ 
+ *************************************************************************/
 void printGraph(){
     printf("\nAdjacency Matrix\n");
     printHeader();
     for (int i = 0; i < N_nodes ; i++) {
         printf("%-2d| " , i + 1);
         for (int j = 0 ; j < N_nodes; j++) {
-            printf("%-4d " , graph[i][j]);
+            printf("%-6d " , graph[i][j]);
         }
         printf("\n");
     }
 }
 
+/************************************************************************
+ 
+ strcut:        printGraph
+ 
+ Description:   print distance matrix
+ 
+ *************************************************************************/
 void printDist(){
     printf("\nDistance Matrix\n");
     printHeader();
     for (int i = 0; i < N_nodes ; i++) {
-        printf("%-2d| " , i + 1);
+        printf("%-6d| " , i + 1);
         for (int j = 0 ; j < N_nodes; j++) {
-            (dist[i][j] == INT_MAX) ? printf("INF ") : printf("%-4d " , dist[i][j]);
+            (dist[i][j] == INT_MAX) ? printf("%-6s","INF") : printf("%-6d " , dist[i][j]);
         }
         printf("\n");
     }
