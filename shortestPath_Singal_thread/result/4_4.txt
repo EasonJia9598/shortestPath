@@ -1,0 +1,45 @@
+Enter N and M (N for n nodes, M for m edges)
+4 4
+Chose whether print out whole distance matrix or not, Y for yes, N for no(Captial Letter)
+Y
+Enter edges
+1 2 1
+2 3 1
+3 4 1
+4 1 1
+INPUT:
+
+Adjacency Matrix
+|       /|1      |2      |3      |4      |
+|:--|:--|:--|:--|:--|
+1   | 0      1      0      1
+2   | 1      0      1      0
+3   | 0      1      0      1
+4   | 1      0      1      0
+K 0
+iteration time 0.000001
+K 1
+iteration time 0.000008
+K 2
+iteration time 0.000010
+K 3
+iteration time 0.000011
+********************
+OUTPUT:
+
+Adjacency Matrix
+|       /|1      |2      |3      |4      |
+|:--|:--|:--|:--|:--|
+1   | 0      1      0      1
+2   | 1      0      1      0
+3   | 0      1      0      1
+4   | 1      0      1      0
+
+Distance Matrix
+|       /|1      |2      |3      |4      |
+|:--|:--|:--|:--|:--|
+|1     | 0      |1      |2      |1      |
+|2     | 1      |0      |1      |2      |
+|3     | 2      |1      |0      |1      |
+|4     | 1      |2      |1      |0      |
+Total Time = 0.000145

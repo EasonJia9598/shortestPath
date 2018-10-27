@@ -1,0 +1,606 @@
+
+
+ Already running 1 times!: 
+Total create 32 threads(actual)
+Totoal Running time now is 0.0001331
+Totoal calculating time now is 1.3e-05
+
+
+ Already running 2 times!: 
+Total create 64 threads(actual)
+Totoal Running time now is 0.0002312
+Totoal calculating time now is 2.15e-05
+
+
+ Already running 3 times!: 
+Total create 96 threads(actual)
+Totoal Running time now is 0.0003131
+Totoal calculating time now is 3.3e-05
+
+
+ Already running 4 times!: 
+Total create 128 threads(actual)
+Totoal Running time now is 0.0004077
+Totoal calculating time now is 4.39e-05
+
+
+ Already running 5 times!: 
+Total create 160 threads(actual)
+Totoal Running time now is 0.0004966
+Totoal calculating time now is 5.3e-05
+
+
+ Already running 6 times!: 
+Total create 192 threads(actual)
+Totoal Running time now is 0.000569
+Totoal calculating time now is 6.2e-05
+
+
+ Already running 7 times!: 
+Total create 224 threads(actual)
+Totoal Running time now is 0.0006457
+Totoal calculating time now is 7.11e-05
+
+
+ Already running 8 times!: 
+Total create 256 threads(actual)
+Totoal Running time now is 0.0007162
+Totoal calculating time now is 8.05e-05
+
+
+ Already running 9 times!: 
+Total create 288 threads(actual)
+Totoal Running time now is 0.0007871
+Totoal calculating time now is 8.95e-05
+
+
+ Already running 10 times!: 
+Total create 320 threads(actual)
+Totoal Running time now is 0.0008569
+Totoal calculating time now is 9.85e-05
+
+
+ Already running 11 times!: 
+Total create 352 threads(actual)
+Totoal Running time now is 0.0009266
+Totoal calculating time now is 0.0001076
+
+
+ Already running 12 times!: 
+Total create 384 threads(actual)
+Totoal Running time now is 0.0009966
+Totoal calculating time now is 0.0001165
+
+
+ Already running 13 times!: 
+Total create 416 threads(actual)
+Totoal Running time now is 0.0010774
+Totoal calculating time now is 0.0001258
+
+
+ Already running 14 times!: 
+Total create 448 threads(actual)
+Totoal Running time now is 0.0011515
+Totoal calculating time now is 0.000135
+
+
+ Already running 15 times!: 
+Total create 480 threads(actual)
+Totoal Running time now is 0.0012314
+Totoal calculating time now is 0.0001444
+
+
+ Already running 16 times!: 
+Total create 512 threads(actual)
+Totoal Running time now is 0.0013005
+Totoal calculating time now is 0.0001535
+
+
+ Already running 17 times!: 
+Total create 544 threads(actual)
+Totoal Running time now is 0.0013694
+Totoal calculating time now is 0.0001627
+
+
+ Already running 18 times!: 
+Total create 576 threads(actual)
+Totoal Running time now is 0.0014395
+Totoal calculating time now is 0.0001719
+
+
+ Already running 19 times!: 
+Total create 608 threads(actual)
+Totoal Running time now is 0.0015083
+Totoal calculating time now is 0.000181
+
+
+ Already running 20 times!: 
+Total create 640 threads(actual)
+Totoal Running time now is 0.0015786
+Totoal calculating time now is 0.0001902
+
+
+ Already running 21 times!: 
+Total create 672 threads(actual)
+Totoal Running time now is 0.0016483
+Totoal calculating time now is 0.0001995
+
+
+ Already running 22 times!: 
+Total create 704 threads(actual)
+Totoal Running time now is 0.0017251
+Totoal calculating time now is 0.0002089
+
+
+ Already running 23 times!: 
+Total create 736 threads(actual)
+Totoal Running time now is 0.0017932
+Totoal calculating time now is 0.0002181
+
+
+ Already running 24 times!: 
+Total create 768 threads(actual)
+Totoal Running time now is 0.0018624
+Totoal calculating time now is 0.0002274
+
+
+ Already running 25 times!: 
+Total create 800 threads(actual)
+Totoal Running time now is 0.0019314
+Totoal calculating time now is 0.0002363
+
+
+ Already running 26 times!: 
+Total create 832 threads(actual)
+Totoal Running time now is 0.0020017
+Totoal calculating time now is 0.0002455
+
+
+ Already running 27 times!: 
+Total create 864 threads(actual)
+Totoal Running time now is 0.0020704
+Totoal calculating time now is 0.0002542
+
+
+ Already running 28 times!: 
+Total create 896 threads(actual)
+Totoal Running time now is 0.0021392
+Totoal calculating time now is 0.0002633
+
+
+ Already running 29 times!: 
+Total create 928 threads(actual)
+Totoal Running time now is 0.0022076
+Totoal calculating time now is 0.0002725
+
+
+ Already running 30 times!: 
+Total create 960 threads(actual)
+Totoal Running time now is 0.0022767
+Totoal calculating time now is 0.0002817
+
+
+ Already running 31 times!: 
+Total create 992 threads(actual)
+Totoal Running time now is 0.0023452
+Totoal calculating time now is 0.000291
+
+
+ Already running 32 times!: 
+Total create 1024 threads(actual)
+Totoal Running time now is 0.0024133
+Totoal calculating time now is 0.0003002
+
+
+ Already running 33 times!: 
+Total create 1056 threads(actual)
+Totoal Running time now is 0.0024815
+Totoal calculating time now is 0.0003094
+
+
+ Already running 34 times!: 
+Total create 1088 threads(actual)
+Totoal Running time now is 0.0025506
+Totoal calculating time now is 0.0003184
+
+
+ Already running 35 times!: 
+Total create 1120 threads(actual)
+Totoal Running time now is 0.0026183
+Totoal calculating time now is 0.0003278
+
+
+ Already running 36 times!: 
+Total create 1152 threads(actual)
+Totoal Running time now is 0.0026873
+Totoal calculating time now is 0.0003369
+
+
+ Already running 37 times!: 
+Total create 1184 threads(actual)
+Totoal Running time now is 0.0027605
+Totoal calculating time now is 0.000346
+
+
+ Already running 38 times!: 
+Total create 1216 threads(actual)
+Totoal Running time now is 0.002849
+Totoal calculating time now is 0.0003557
+
+
+ Already running 39 times!: 
+Total create 1248 threads(actual)
+Totoal Running time now is 0.0029586
+Totoal calculating time now is 0.0003672
+
+
+ Already running 40 times!: 
+Total create 1280 threads(actual)
+Totoal Running time now is 0.0030609
+Totoal calculating time now is 0.0003776
+
+
+ Already running 41 times!: 
+Total create 1312 threads(actual)
+Totoal Running time now is 0.0031356
+Totoal calculating time now is 0.0003873
+
+
+ Already running 42 times!: 
+Total create 1344 threads(actual)
+Totoal Running time now is 0.0032397
+Totoal calculating time now is 0.0003973
+
+
+ Already running 43 times!: 
+Total create 1376 threads(actual)
+Totoal Running time now is 0.0033189
+Totoal calculating time now is 0.000407
+
+
+ Already running 44 times!: 
+Total create 1408 threads(actual)
+Totoal Running time now is 0.0034085
+Totoal calculating time now is 0.0004197
+
+
+ Already running 45 times!: 
+Total create 1440 threads(actual)
+Totoal Running time now is 0.0034982
+Totoal calculating time now is 0.0004299
+
+
+ Already running 46 times!: 
+Total create 1472 threads(actual)
+Totoal Running time now is 0.0035994
+Totoal calculating time now is 0.0004417
+
+
+ Already running 47 times!: 
+Total create 1504 threads(actual)
+Totoal Running time now is 0.0037021
+Totoal calculating time now is 0.0004527
+
+
+ Already running 48 times!: 
+Total create 1536 threads(actual)
+Totoal Running time now is 0.0038523
+Totoal calculating time now is 0.0004694
+
+
+ Already running 49 times!: 
+Total create 1568 threads(actual)
+Totoal Running time now is 0.0039547
+Totoal calculating time now is 0.0004818
+
+
+ Already running 50 times!: 
+Total create 1600 threads(actual)
+Totoal Running time now is 0.0040816
+Totoal calculating time now is 0.0004978
+
+
+ Already running 51 times!: 
+Total create 1632 threads(actual)
+Totoal Running time now is 0.0041807
+Totoal calculating time now is 0.0005148
+
+
+ Already running 52 times!: 
+Total create 1664 threads(actual)
+Totoal Running time now is 0.0042593
+Totoal calculating time now is 0.0005237
+
+
+ Already running 53 times!: 
+Total create 1696 threads(actual)
+Totoal Running time now is 0.0043452
+Totoal calculating time now is 0.0005326
+
+
+ Already running 54 times!: 
+Total create 1728 threads(actual)
+Totoal Running time now is 0.004419
+Totoal calculating time now is 0.0005415
+
+
+ Already running 55 times!: 
+Total create 1760 threads(actual)
+Totoal Running time now is 0.0044903
+Totoal calculating time now is 0.0005514
+
+
+ Already running 56 times!: 
+Total create 1792 threads(actual)
+Totoal Running time now is 0.0045601
+Totoal calculating time now is 0.0005604
+
+
+ Already running 57 times!: 
+Total create 1824 threads(actual)
+Totoal Running time now is 0.0046282
+Totoal calculating time now is 0.0005694
+
+
+ Already running 58 times!: 
+Total create 1856 threads(actual)
+Totoal Running time now is 0.0046969
+Totoal calculating time now is 0.0005782
+
+
+ Already running 59 times!: 
+Total create 1888 threads(actual)
+Totoal Running time now is 0.0047666
+Totoal calculating time now is 0.0005874
+
+
+ Already running 60 times!: 
+Total create 1920 threads(actual)
+Totoal Running time now is 0.0048362
+Totoal calculating time now is 0.0005968
+
+
+ Already running 61 times!: 
+Total create 1952 threads(actual)
+Totoal Running time now is 0.0049065
+Totoal calculating time now is 0.000606
+
+
+ Already running 62 times!: 
+Total create 1984 threads(actual)
+Totoal Running time now is 0.0049832
+Totoal calculating time now is 0.0006154
+
+
+ Already running 63 times!: 
+Total create 2016 threads(actual)
+Totoal Running time now is 0.005056
+Totoal calculating time now is 0.0006244
+
+
+ Already running 64 times!: 
+Total create 2048 threads(actual)
+Totoal Running time now is 0.0051284
+Totoal calculating time now is 0.0006337
+
+
+ Already running 65 times!: 
+Total create 2080 threads(actual)
+Totoal Running time now is 0.0052002
+Totoal calculating time now is 0.0006433
+
+
+ Already running 66 times!: 
+Total create 2112 threads(actual)
+Totoal Running time now is 0.0052725
+Totoal calculating time now is 0.0006525
+
+
+ Already running 67 times!: 
+Total create 2144 threads(actual)
+Totoal Running time now is 0.0053435
+Totoal calculating time now is 0.0006618
+
+
+ Already running 68 times!: 
+Total create 2176 threads(actual)
+Totoal Running time now is 0.0054123
+Totoal calculating time now is 0.0006708
+
+
+ Already running 69 times!: 
+Total create 2208 threads(actual)
+Totoal Running time now is 0.0054829
+Totoal calculating time now is 0.0006802
+
+
+ Already running 70 times!: 
+Total create 2240 threads(actual)
+Totoal Running time now is 0.0055524
+Totoal calculating time now is 0.0006892
+
+
+ Already running 71 times!: 
+Total create 2272 threads(actual)
+Totoal Running time now is 0.0056267
+Totoal calculating time now is 0.0007022
+
+
+ Already running 72 times!: 
+Total create 2304 threads(actual)
+Totoal Running time now is 0.0057075
+Totoal calculating time now is 0.0007113
+
+
+ Already running 73 times!: 
+Total create 2336 threads(actual)
+Totoal Running time now is 0.0057794
+Totoal calculating time now is 0.0007201
+
+
+ Already running 74 times!: 
+Total create 2368 threads(actual)
+Totoal Running time now is 0.0058748
+Totoal calculating time now is 0.0007301
+
+
+ Already running 75 times!: 
+Total create 2400 threads(actual)
+Totoal Running time now is 0.0059482
+Totoal calculating time now is 0.0007387
+
+
+ Already running 76 times!: 
+Total create 2432 threads(actual)
+Totoal Running time now is 0.0060191
+Totoal calculating time now is 0.0007478
+
+
+ Already running 77 times!: 
+Total create 2464 threads(actual)
+Totoal Running time now is 0.0060893
+Totoal calculating time now is 0.000757
+
+
+ Already running 78 times!: 
+Total create 2496 threads(actual)
+Totoal Running time now is 0.0061595
+Totoal calculating time now is 0.0007659
+
+
+ Already running 79 times!: 
+Total create 2528 threads(actual)
+Totoal Running time now is 0.006232
+Totoal calculating time now is 0.0007752
+
+
+ Already running 80 times!: 
+Total create 2560 threads(actual)
+Totoal Running time now is 0.0063035
+Totoal calculating time now is 0.0007843
+
+
+ Already running 81 times!: 
+Total create 2592 threads(actual)
+Totoal Running time now is 0.0063876
+Totoal calculating time now is 0.0007939
+
+
+ Already running 82 times!: 
+Total create 2624 threads(actual)
+Totoal Running time now is 0.0064689
+Totoal calculating time now is 0.0008037
+
+
+ Already running 83 times!: 
+Total create 2656 threads(actual)
+Totoal Running time now is 0.0065437
+Totoal calculating time now is 0.0008127
+
+
+ Already running 84 times!: 
+Total create 2688 threads(actual)
+Totoal Running time now is 0.0066219
+Totoal calculating time now is 0.0008237
+
+
+ Already running 85 times!: 
+Total create 2720 threads(actual)
+Totoal Running time now is 0.0067152
+Totoal calculating time now is 0.0008363
+
+
+ Already running 86 times!: 
+Total create 2752 threads(actual)
+Totoal Running time now is 0.0067898
+Totoal calculating time now is 0.0008464
+
+
+ Already running 87 times!: 
+Total create 2784 threads(actual)
+Totoal Running time now is 0.0068731
+Totoal calculating time now is 0.0008557
+
+
+ Already running 88 times!: 
+Total create 2816 threads(actual)
+Totoal Running time now is 0.0069494
+Totoal calculating time now is 0.0008651
+
+
+ Already running 89 times!: 
+Total create 2848 threads(actual)
+Totoal Running time now is 0.0070334
+Totoal calculating time now is 0.0008747
+
+
+ Already running 90 times!: 
+Total create 2880 threads(actual)
+Totoal Running time now is 0.0071299
+Totoal calculating time now is 0.0008841
+
+
+ Already running 91 times!: 
+Total create 2912 threads(actual)
+Totoal Running time now is 0.0072072
+Totoal calculating time now is 0.0008937
+
+
+ Already running 92 times!: 
+Total create 2944 threads(actual)
+Totoal Running time now is 0.007302
+Totoal calculating time now is 0.0009026
+
+
+ Already running 93 times!: 
+Total create 2976 threads(actual)
+Totoal Running time now is 0.0073698
+Totoal calculating time now is 0.0009115
+
+
+ Already running 94 times!: 
+Total create 3008 threads(actual)
+Totoal Running time now is 0.0074428
+Totoal calculating time now is 0.0009203
+
+
+ Already running 95 times!: 
+Total create 3040 threads(actual)
+Totoal Running time now is 0.007517
+Totoal calculating time now is 0.0009293
+
+
+ Already running 96 times!: 
+Total create 3072 threads(actual)
+Totoal Running time now is 0.0075876
+Totoal calculating time now is 0.0009382
+
+
+ Already running 97 times!: 
+Total create 3104 threads(actual)
+Totoal Running time now is 0.0076598
+Totoal calculating time now is 0.0009474
+
+
+ Already running 98 times!: 
+Total create 3136 threads(actual)
+Totoal Running time now is 0.0077341
+Totoal calculating time now is 0.0009564
+
+
+ Already running 99 times!: 
+Total create 3168 threads(actual)
+Totoal Running time now is 0.007806
+Totoal calculating time now is 0.0009658
+
+
+ Already running 100 times!: 
+Total create 3200 threads(actual)
+Totoal Running time now is 0.007877
+Totoal calculating time now is 0.0009748
+
+Total running Time = 0.007877
+
+Total calcuating Time = 0.0009748
+Total create = 3200 threads(actual)
+Total create = 3200 threads(plan)

@@ -1,0 +1,29 @@
+
+
+ Already running 1 times!: 
+Total create 0 threads(actual)
+Totoal Running time now is 2.99e-05
+Totoal calculating time now is 1.01e-05
+
+
+ Already running 2 times!: 
+Total create 0 threads(actual)
+Totoal Running time now is 5.16e-05
+Totoal calculating time now is 2.36e-05
+
+
+ Already running 3 times!: 
+Total create 0 threads(actual)
+Totoal Running time now is 7.04e-05
+Totoal calculating time now is 2.89e-05
+
+
+ Already running 4 times!: 
+Total create 0 threads(actual)
+Totoal Running time now is 8.93e-05
+Totoal calculating time now is 3.58e-05
+
+Total running Time = 8.93e-05
+
+Total calcuating Time = 3.58e-05
+Total create = 16 threads(plan)

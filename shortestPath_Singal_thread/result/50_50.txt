@@ -1,0 +1,13 @@
+K 44
+iteration time 0.000293
+K 45
+iteration time 0.000299
+K 46
+iteration time 0.000306
+K 47
+iteration time 0.000312
+K 48
+iteration time 0.000318
+K 49
+iteration time 0.000324
+Total Time = 0.000656

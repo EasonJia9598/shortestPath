@@ -1,0 +1,18 @@
+iteration time 0.001653
+K 92
+iteration time 0.001670
+K 93
+iteration time 0.001688
+K 94
+iteration time 0.001706
+K 95
+iteration time 0.001724
+K 96
+iteration time 0.001741
+K 97
+iteration time 0.001759
+K 98
+iteration time 0.001777
+K 99
+iteration time 0.001795
+Total Time = 0.002332

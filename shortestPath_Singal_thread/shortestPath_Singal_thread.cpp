@@ -11,7 +11,13 @@
 //total_time_of_running total_time_of_running
 double total_time_of_running_trace = 0;
 
-
+/************************************************************************
+ 
+ strcut:        shortestPath
+ 
+ Description:   shortest Path main functions
+ 
+ *************************************************************************/
 void *shortestPath(void *param){
     for (int k = 0 ; k < N_nodes; k++) {
         printf("K %d\n" , k);

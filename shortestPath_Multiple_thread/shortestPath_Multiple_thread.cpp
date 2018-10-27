@@ -90,6 +90,7 @@ void shortestPath (){
     pthread_t *thread = (pthread_t *)malloc(N_nodes * sizeof(pthread_t));
     
     for (int k = 0; k < N_nodes; k++) {
+        // generating struct
         arg_s value[N_nodes];
 
         for (int i = 0; i < N_nodes; i++) {
@@ -106,10 +107,12 @@ void shortestPath (){
             pthread_join(*(thread + i), NULL);
         }
         
+        // print time tracing info
         if (time_tracing_option == 'Y') {
             printf("\n\nAlready running %d times!:\n" , k);
             printf("Totoal Running time now is %lf ! \n" , float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10));
             
+            // write data into file
             if (write_into_file) {
                 outfile << "\n\n Already running " << k << " times!: " << endl;
                 outfile << "Totoal Running time now is " << float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10) << endl;
@@ -145,6 +148,7 @@ int main(int argc, const char * argv[]) {
     char file_writing;
     printf("Enable write report into txt file? Y for yes, N for no(Captial Letter)\n");
     scanf("\n%c" , &file_writing);
+    // check value
     write_into_file = (file_writing == 'Y') ? 1 : 0;
     
     initializeGraph(N_nodes, M_edges);                      // initialize graph
@@ -156,7 +160,7 @@ int main(int argc, const char * argv[]) {
     }
 
     if (write_into_file) {
-        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath_Singal_thread/file.txt");
     }
 
     // calculate shortest path
@@ -172,20 +176,18 @@ int main(int argc, const char * argv[]) {
         printGraph(); printDist();
     }
 
-    // 以写模式打开文件
-    
-    // 以写模式打开文件
+    // open file for writing reslut if user don't want to write every thing into file
     if (!write_into_file) {
-        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath_Singal_thread/file.txt");
     }
     
-    // 向文件写入用户输入的数据
+    // write into file
     outfile << "\nTotal Time = " << total_time_of_running << endl;
     
 
     printf("\nTotal Time = %f\n " , total_time_of_running );
     
-    // 关闭打开的文件
+    // close file
     outfile.close();
     
     sem_destroy(&writeLock);

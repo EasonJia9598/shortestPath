@@ -45,7 +45,7 @@ char time_tracing_option;
 ofstream outfile;
 
 //
-int numberOf_thread = 320;
+int numberOf_thread = 32;
 //
 int write_into_file = 0;
 
@@ -191,7 +191,7 @@ int main(int argc, const char * argv[]) {
     }
     
     if (write_into_file) {
-        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/SP_MP_with_static_threads_sum_number/file1.txt");
     }
     
     // calculate shortest path
@@ -209,7 +209,7 @@ int main(int argc, const char * argv[]) {
     
     // 以写模式打开文件
     if (!write_into_file) {
-        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
+        outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/SP_MP_with_static_threads_sum_number/file1.txt");
     }
     
     // 向文件写入用户输入的数据
