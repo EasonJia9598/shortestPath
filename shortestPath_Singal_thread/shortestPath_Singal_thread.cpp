@@ -8,10 +8,14 @@
 
 #include <iostream>
 #include "graph.h"
+//total_time_of_running total_time_of_running
+double total_time_of_running_trace = 0;
 
 
 void *shortestPath(void *param){
     for (int k = 0 ; k < N_nodes; k++) {
+        printf("K %d\n" , k);
+    const clock_t begin_t = clock();
       for (int i = 0 ; i < N_nodes; i++) {
         for (int j = 0 ; j < N_nodes; j++) {
             if (graph[i][k] != 0 &&  graph[k][j] != 0 && dist[i][k] + dist[k][j] < dist[i][j]) {
@@ -19,6 +23,9 @@ void *shortestPath(void *param){
             }
         }
       }
+        total_time_of_running_trace += float( clock () - begin_t ) /  CLOCKS_PER_SEC;
+        printf("iteration time %f \n" ,total_time_of_running_trace );
+
     }
     
     pthread_exit(NULL);
@@ -46,10 +53,11 @@ int main(int argc, const char * argv[]) {
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     
+    const clock_t begin_time = clock();
+    
     // start to create 5 pthread with specific functions
     pthread_create(&cal, &attr, shortestPath, NULL);
     
-    const clock_t begin_time = clock();
     pthread_join(cal, NULL);
     total_time_of_running = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
 

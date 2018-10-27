@@ -1,0 +1,6 @@
+
+Total running Time = 0.451656
+
+Total calcuating Time = 0.10587
+Total create = 64000 threads(actual)
+Total create = 32000 threads(plan)

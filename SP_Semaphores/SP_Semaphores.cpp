@@ -22,11 +22,8 @@ struct arg_s{
 double total_time_of_running = 0;
 
 // semaphore lock
-//sem_t readCountLock;
-//sem_t writeLock;
-// mutex lock
-pthread_mutex_t readCountLock;
-pthread_mutex_t writeLock;
+sem_t readCountLock;
+sem_t writeLock;
 
 // thread create count
 int actual_thread_count = 0;
@@ -48,9 +45,10 @@ ofstream outfile;
  *************************************************************************/
 void *worker(void *param){
     // thread count
-    pthread_mutex_lock(&writeLock);
+    sem_wait(&writeLock);
     actual_thread_count++;
-    pthread_mutex_unlock(&writeLock);
+    sem_post(&writeLock);
+    
     
     // get *param as struct and convert to additionMatrix
     arg_s *arg = (arg_s*)param;
@@ -58,29 +56,24 @@ void *worker(void *param){
     int k = arg->k;
     for (int j = 0; j < arg->n; j++) {
         //acquire read lock
-//        sem_wait(&readCountLock);
-        pthread_mutex_lock(&readCountLock);
+        sem_wait(&readCountLock);
         
         if (graph[i][k] != 0 &&  graph[k][j] != 0 && dist[i][k] + dist[k][j] < dist[i][j]) {
             //release read lock
-//            sem_post(&readCountLock);
-            pthread_mutex_unlock(&readCountLock);
-
+            sem_post(&readCountLock);
+            
             //acquire write lock
-//            sem_wait(&writeLock);
-            pthread_mutex_lock(&writeLock);
+            sem_wait(&writeLock);
             actual_thread_count++;
             dist[i][j] = dist[i][k] + dist[k][j];
             
             //release write lock
-//            sem_post(&writeLock);
-            pthread_mutex_unlock(&writeLock);
-
+            sem_post(&writeLock);
+            
         }else{
             //release read lock
-//            sem_post(&readCountLock);
-            pthread_mutex_unlock(&readCountLock);
-
+            sem_post(&readCountLock);
+            
         }
     }
     
@@ -110,7 +103,7 @@ void shortestPath (){
             value[i].i = i;
             pthread_create((thread + i), NULL, worker, &value[i]);
         }
-   
+        
         // join pthreads
         for (int i = 0 ; i < N_nodes; i++) {
             plan_thread_count++;
@@ -120,17 +113,17 @@ void shortestPath (){
         if (time_tracing_option == 'Y') {
             printf("\n\nAlready running %d times!:\n" , k);
             printf("Created threads %d !\n" , actual_thread_count);
-            printf("Totoal Running time now is %lf ! \n" , float( clock () - begin_time ) /  CLOCKS_PER_SEC);
-            // 向文件写入用户输入的数据
-            outfile << "\n\n Already running %d times!: " << k << endl;
+            printf("Totoal Running time now is %lf ! \n" , float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10));
+            // write data into file
+            outfile << "\n\n Already running " << k << " times!: " << endl;
             outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
-            outfile << "Totoal Running time now is " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << endl;
+            outfile << "Totoal Running time now is " << float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10) << endl;
         }
         
     }
     
-    total_time_of_running = float( clock () - begin_time ) /  CLOCKS_PER_SEC;
-
+    total_time_of_running = float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10);
+    
 }
 
 
@@ -139,10 +132,8 @@ void shortestPath (){
 int main(int argc, const char * argv[]) {
     
     // initialize lock
-//    sem_init(&readCountLock, 0, 1);
-//    sem_init(&writeLock, 0, 1);
-    pthread_mutex_init(&readCountLock,NULL);
-    pthread_mutex_init(&writeLock,NULL);
+    sem_init(&readCountLock, 0, 1);
+    sem_init(&writeLock, 0, 1);
     
     // enter N and M
     printf("Enter N and M (N for n nodes, M for m edges)\n");
@@ -157,14 +148,14 @@ int main(int argc, const char * argv[]) {
     
     initializeGraph(N_nodes, M_edges);                      // initialize graph
     signEdges(M_edges);                                     // get edges' input
-
+    
     if (option == 'Y') {
         printf("INPUT:\n");
         printGraph();
     }
-
+    
     outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
-
+    
     // calculate shortest path
     shortestPath();
     
@@ -177,25 +168,23 @@ int main(int argc, const char * argv[]) {
         printf("OUTPUT:\n");
         printGraph(); printDist();
     }
-
+    
     // 以写模式打开文件
     
     
     // 向文件写入用户输入的数据
     outfile << "\nTotal Time = " << total_time_of_running << endl;
-    outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
-    outfile << "Total create " << plan_thread_count <<  " threads(plan)" << endl;
+    outfile << "Total create = " << actual_thread_count <<  " threads(actual)"  << endl;
+    outfile << "Total create = " << plan_thread_count <<  " threads(plan)" << endl;
     
-
+    
     printf("\nTotal Time = %f\nTotal create %d threads(actual)\nTotal create %d threads(plan) " , total_time_of_running , actual_thread_count, plan_thread_count);
     
     // 关闭打开的文件
     outfile.close();
     
-//    sem_destroy(&writeLock);
-//    sem_destroy(&readCountLock);
-    pthread_mutex_destroy(&readCountLock);
-    pthread_mutex_destroy(&writeLock);
+    sem_destroy(&writeLock);
+    sem_destroy(&readCountLock);
     
     return 0;
 }
