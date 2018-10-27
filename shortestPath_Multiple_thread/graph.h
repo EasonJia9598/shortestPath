@@ -69,6 +69,10 @@ void signEdges(int M_edges){
     for (int i = 0; i < M_edges; i++) {
         scanf("%d %d %d", &vi , &uj, &k);
         // undirected graph
+        if(vi < 1 || uj < 1 || k < 0 ){
+            printf("Input wrong!! exit now\n");
+            exit(0);
+        }
         graph[vi - 1][uj - 1] = 1;
         graph[uj - 1][vi - 1] = 1;
         dist[vi - 1][uj - 1]  = k;
@@ -84,14 +88,15 @@ void signEdges(int M_edges){
  
  *************************************************************************/
 void printHeader(){
-    printf("%5s" , " ");
+    printf("|%8s|" , "/");
     for (int i = 1; i <= N_nodes; i++) {
-        printf("%-6d " , i);
+        printf("%-6d |" , i);
     }
     cout << endl;
     for (int i = 0; i <= N_nodes; i++) {
-        printf("****");
+        printf("|:--");
     }
+    printf("|");
     cout << endl;
 }
 
@@ -106,7 +111,7 @@ void printGraph(){
     printf("\nAdjacency Matrix\n");
     printHeader();
     for (int i = 0; i < N_nodes ; i++) {
-        printf("%-2d| " , i + 1);
+        printf("%-4d| " , i + 1);
         for (int j = 0 ; j < N_nodes; j++) {
             printf("%-6d " , graph[i][j]);
         }
@@ -125,9 +130,9 @@ void printDist(){
     printf("\nDistance Matrix\n");
     printHeader();
     for (int i = 0; i < N_nodes ; i++) {
-        printf("%-6d| " , i + 1);
+        printf("|%-6d| " , i + 1);
         for (int j = 0 ; j < N_nodes; j++) {
-            (dist[i][j] == INT_MAX) ? printf("%-6s","INF") : printf("%-6d " , dist[i][j]);
+            (dist[i][j] == INT_MAX) ? printf("%-6s |","INF") : printf("%-6d |" , dist[i][j]);
         }
         printf("\n");
     }

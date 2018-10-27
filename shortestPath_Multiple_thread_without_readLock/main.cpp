@@ -18,9 +18,12 @@ struct arg_s{
     int i;
     int k;
 };
-//total_time_of_running total_time_of_running
+//total_time_of_running
 double total_time_of_running = 0;
-
+//total time of calculating during threads join
+double total_time_of_calculating = 0;
+//total time of creating threads during pthread create
+double total_time_of_creating_threads = 0;
 // semaphore lock
 sem_t readCountLock;
 sem_t writeLock;
@@ -38,7 +41,7 @@ ofstream outfile;
 //
 int write_into_file = 0;
 
-
+//
 /************************************************************************
  
  strcut:        worker
@@ -53,23 +56,13 @@ void *worker(void *param){
     int i = arg->i;
     int k = arg->k;
     for (int j = 0; j < arg->n; j++) {
-        //acquire read lock
-        sem_wait(&readCountLock);
+
         if (graph[i][k] != 0 &&  graph[k][j] != 0 && dist[i][k] + dist[k][j] < dist[i][j]) {
-            //release read lock
-            sem_post(&readCountLock);
-            
             //acquire write lock
             sem_wait(&writeLock);
             dist[i][j] = dist[i][k] + dist[k][j];
-            
             //release write lock
             sem_post(&writeLock);
-            
-        }else{
-            //release read lock
-            sem_post(&readCountLock);
-            
         }
     }
     
@@ -92,6 +85,9 @@ void shortestPath (){
     for (int k = 0; k < N_nodes; k++) {
         arg_s value[N_nodes];
 
+        const clock_t begin_time_iteration = clock();
+
+        
         for (int i = 0; i < N_nodes; i++) {
             // set up arguments to be passed
             value[i].n = N_nodes;
@@ -99,27 +95,41 @@ void shortestPath (){
             value[i].i = i;
             pthread_create((thread + i), NULL, worker, &value[i]);
         }
-   
+        
+        total_time_of_creating_threads += float( clock () - begin_time_iteration ) /  (CLOCKS_PER_SEC * 10);
+        
+        const clock_t begin_time_joining_iteration = clock();
+
+        
         // join pthreads
         for (int i = 0 ; i < N_nodes; i++) {
             plan_thread_count++;
             pthread_join(*(thread + i), NULL);
         }
+        total_time_of_calculating += float( clock () - begin_time_joining_iteration ) /  (CLOCKS_PER_SEC * 10);
+        total_time_of_running += float( clock () - begin_time_iteration ) /  (CLOCKS_PER_SEC * 10);
         
         if (time_tracing_option == 'Y') {
-            printf("\n\nAlready running %d times!:\n" , k);
-            printf("Totoal Running time now is %lf ! \n" , float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10));
+            printf("\n\nAlready running %d times!:\n" , k + 1);
+            printf("Created threads %d !\n" , actual_thread_count);
+            printf("Totoal Running time now is %lf ! \n" , total_time_of_running);
+            printf("Totoal calculating time now is %lf ! \n" , total_time_of_calculating);
+            printf("Totoal creating threads time now is %lf ! \n" , total_time_of_creating_threads);
             
             if (write_into_file) {
-                outfile << "\n\n Already running " << k << " times!: " << endl;
-                outfile << "Totoal Running time now is " << float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10) << endl;
+                outfile << "\n\n Already running " << k + 1 << " times!: " << endl;
+                outfile << "Total create " << actual_thread_count <<  " threads(actual)"  << endl;
+                outfile << "Totoal Running time now is " << total_time_of_running << endl;
+                outfile << "Totoal calculating time now is " << total_time_of_calculating << endl;
+                
             }
+            
         }
         
     }
     
     total_time_of_running = float( clock () - begin_time ) /  (CLOCKS_PER_SEC * 10);
-
+    
 }
 
 
@@ -149,16 +159,16 @@ int main(int argc, const char * argv[]) {
     
     initializeGraph(N_nodes, M_edges);                      // initialize graph
     signEdges(M_edges);                                     // get edges' input
-
+    
     if (option == 'Y') {
         printf("INPUT:\n");
         printGraph();
     }
-
+    
     if (write_into_file) {
         outfile.open("/Users/WillJia/Desktop/IOS Lecture/Projects/shortestPath/shortestPath/file1.txt");
     }
-
+    
     // calculate shortest path
     shortestPath();
     
@@ -171,7 +181,7 @@ int main(int argc, const char * argv[]) {
         printf("OUTPUT:\n");
         printGraph(); printDist();
     }
-
+    
     // 以写模式打开文件
     
     // 以写模式打开文件
@@ -180,10 +190,13 @@ int main(int argc, const char * argv[]) {
     }
     
     // 向文件写入用户输入的数据
-    outfile << "\nTotal Time = " << total_time_of_running << endl;
+    outfile << "\nTotal running Time = " << total_time_of_running << endl;
+    outfile << "\nTotal calcuating Time = " << total_time_of_calculating << endl;
+    outfile << "Total create = " << plan_thread_count <<  " threads(plan)" << endl;
     
-
-    printf("\nTotal Time = %f\n " , total_time_of_running );
+    
+    printf("\nTotal running Time = %f\nTotal calculating Time = %f\nTotal create threads time %f\nTotal create %d threads(plan) " , total_time_of_running , total_time_of_calculating, total_time_of_creating_threads, plan_thread_count);
+    
     
     // 关闭打开的文件
     outfile.close();

@@ -14,6 +14,7 @@
 #include <math.h>
 #include <time.h>
 #include <limits.h>
+
 using namespace std;
 
 // 2D arrays
@@ -68,6 +69,10 @@ void signEdges(int M_edges){
     for (int i = 0; i < M_edges; i++) {
         scanf("%d %d %d", &vi , &uj, &k);
         // undirected graph
+        if(vi < 1 || uj < 1 || k < 0 ){
+            printf("Input wrong!! exit now\n");
+            exit(0);
+        }
         graph[vi - 1][uj - 1] = 1;
         graph[uj - 1][vi - 1] = 1;
         dist[vi - 1][uj - 1]  = k;
